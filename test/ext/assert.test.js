@@ -23,8 +23,7 @@ import assert from '../../lib/should.js';
 
 const keys = Object.keys;
 
-function makeBlock(f) {
-  const args = Array.prototype.slice.call(arguments, 1);
+function makeBlock(f, ...args) {
   return function () {
     return f.apply(this, args);
   };

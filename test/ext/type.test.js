@@ -5,6 +5,7 @@ import should from '../../lib/index.js';
 import { err } from '../util.js';
 
 function _arguments() {
+  // biome-ignore lint/complexity/noArguments: need arguments to test
   return arguments;
 }
 
@@ -232,9 +233,11 @@ describe('type', () => {
     const ae = new AssertionError({ actual: 10, operator: 'to fail' });
     ae.should.be.an.Error();
 
-    const AsyncTimeoutError = function AsyncTimeoutError(msg) {
-      msg && (this.message = msg);
-      Error.apply(this, arguments);
+    const AsyncTimeoutError = function AsyncTimeoutError(...args) {
+      if (args.length > 0) {
+        this.message = args[0];
+      }
+      Error.apply(this, args);
       Error.captureStackTrace?.(this, AsyncTimeoutError);
     };
     util.inherits(AsyncTimeoutError, Error);

@@ -9,8 +9,8 @@ describe('eql', () => {
     (1).should.eql(1);
     const memo = [];
 
-    function memorize() {
-      memo.push(arguments);
+    function memorize(...args) {
+      memo.push(args);
     }
 
     memorize('a', [1, 2]);

@@ -1,9 +1,7 @@
 import should from '../lib/should.js';
 
-export function err(fn, msg) {
-  if (arguments.length > 2) {
-    msg = Array.prototype.slice.call(arguments, 1).join('\n');
-  }
+export function err(fn, ...msgs) {
+  const msg = msgs.length > 1 ? msgs.join('\n') : msgs[0];
 
   let ok = true;
   try {
