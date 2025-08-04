@@ -29,7 +29,10 @@
       "quoteStyle": "single",
       "trailingCommas": "none",
       "arrowParentheses": "asNeeded"
-    }
+    },
+    "globals": [
+      "arguments"
+    ]
   },
   "json": {
     "formatter": {
@@ -45,7 +48,8 @@
         "noUnusedVariables": "error"
       },
       "complexity": {
-        "noForEach": "off"
+        "noForEach": "off",
+        "noArguments": "off"
       },
       "style": {
         "noParameterAssign": "off",
