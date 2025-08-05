@@ -162,32 +162,4 @@ describe("error", function() {
       }.should.throw({ a: 11 }));
     }, /expected Function \{ name: '' \} to throw exception: expected Error \{[\s\S]*a: 10,[\s\S]*message: ''[\s\S]*\} to match Object \{ a: 11 \}\n\s{4}not matched properties: a \(10\)/);
   });
-  /* TODO find a way to write tests with es6 features
-  it('should support to catch errors from generators', function() {
-    if(generatorSupported) {
-      var throwsError = function*() {
-        throw new Error();
-      }
-
-      (function * () {
-        yield throwsError();
-      }).should.throw();
-
-      var throwsError1 = function*() {
-        throw new Error();
-        yield console.log('hello');
-      }
-
-      (function * () {
-        yield throwsError1();
-      }).should.throw();
-
-      var noError = function * () { yield console.log('no error') };
-
-      err(function(){
-        (function * () {yield noError();}).should.throw();
-      }, 'expected Function { name: \'\' } to throw exception');
-
-    }
-  });*/
 });
