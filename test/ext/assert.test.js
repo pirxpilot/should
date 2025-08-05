@@ -233,7 +233,7 @@ describe('assert', () => {
     assert.throws(makeBlock(thrower, TypeError), /test/);
   });
 
-  it('se a fn to validate error object', () => {
+  it('use a fn to validate error object', () => {
     assert.throws(makeBlock(thrower, TypeError), err => {
       if (err instanceof TypeError && /test/.test(err)) {
         return true;
