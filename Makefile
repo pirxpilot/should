@@ -13,3 +13,6 @@ test-cov: TEST_OPTS := --experimental-test-coverage
 test-cov: test
 
 .PHONY: check format lint test test-cov
+
+show-errors:
+	node --test test/show-errors.js

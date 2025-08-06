@@ -263,7 +263,7 @@ describe('assert', () => {
       try {
         assert.equal(actual, '');
       } catch (e) {
-        assert.equal(e.toString(), ['AssertionError: expected', expected, '==', "''"].join(' '));
+        assert.equal(e.toString(), ['AssertionError [ERR_ASSERTION]: expected', expected, '==', "''"].join(' '));
       }
     }
 
@@ -306,13 +306,13 @@ describe('assert', () => {
     try {
       assert.equal(1, 2);
     } catch (e) {
-      assert.equal(e.toString().split('\n')[0], 'AssertionError: expected 1 == 2');
+      assert.equal(e.toString().split('\n')[0], 'AssertionError [ERR_ASSERTION]: expected 1 == 2');
     }
 
     try {
       assert.equal(1, 2, 'oh no');
     } catch (e) {
-      assert.equal(e.toString().split('\n')[0], 'AssertionError: oh no');
+      assert.equal(e.toString().split('\n')[0], 'AssertionError [ERR_ASSERTION]: oh no');
     }
   });
 });
