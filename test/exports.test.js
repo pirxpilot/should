@@ -1,10 +1,12 @@
-var assert = require("assert");
+import assert from 'node:assert';
+import test from 'node:test';
+import should from '../lib/index.js';
 
-// should global
-assert(typeof global.should === "function");
+test('should global', () => {
+  assert(typeof global.should === 'function');
+});
 
-var should = require("../cjs/should");
-
-// should default export
-assert(typeof should === "function");
-assert(typeof should.Assertion === "function");
+test('should default export', () => {
+  assert(typeof should === 'function');
+  assert(typeof should.Assertion === 'function');
+});
